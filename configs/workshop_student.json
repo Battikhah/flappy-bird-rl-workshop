@@ -1,0 +1,58 @@
+{
+  "discretization": {
+    "height_edges": [
+      -240,
+      -224,
+      -208,
+      -192,
+      -176,
+      -160,
+      -144,
+      -128,
+      -112,
+      -96,
+      -80,
+      -64,
+      -48,
+      -32,
+      -16,
+      0,
+      16,
+      32,
+      48,
+      64,
+      80,
+      96,
+      112,
+      128,
+      144,
+      160,
+      176,
+      192,
+      208,
+      224,
+      240
+    ],
+    "time_edges": [
+      0,
+      16,
+      40
+    ]
+  },
+  "learning": {
+    "alpha": 0.08,
+    "gamma": 0.98,
+    "epsilon_start": 0.5,
+    "epsilon_min": 0.002,
+    "epsilon_decay": 0.998
+  },
+  "rewards": {
+    "survival": 0.2,
+    "pipe": 10,
+    "collision": -20,
+    "alignment": 0.4
+  },
+  "training": {
+    "map_seed": 100000
+  }
+}
