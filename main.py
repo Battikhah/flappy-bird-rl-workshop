@@ -40,6 +40,8 @@ def playback(args):
     clock = pygame.time.Clock()
     try:
         env.render()
+        env._renderer.mode = 'AI' if args.mode == 'demo' else 'HUMAN'
+        env._renderer.detail = 'OBSERVATION DEMO' if args.mode == 'demo' else ''
         while not env.done:
             action = 0
             for event in pygame.event.get():

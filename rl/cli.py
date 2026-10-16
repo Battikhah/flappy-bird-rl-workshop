@@ -95,6 +95,8 @@ def watch(agent, args, config):
             seed = None if args.seed is None else args.seed + episode
             observation = env.reset(seed)
             env.render()
+            env._renderer.mode = 'AI'
+            env._renderer.detail = f'EPISODE {episode + 1}/{args.episodes} / Q-TABLE'
             pygame.display.set_caption(f'Q-table agent | Episode {episode + 1}/{args.episodes} | Seed {seed}')
             while True:
                 for event in pygame.event.get():

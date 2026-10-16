@@ -108,3 +108,8 @@ python main.py submit
 - **Training still reports an exercise TODO:** finish all four exercises and rerun the numbered checks before training.
 
 For help, see [Troubleshooting](docs/TROUBLESHOOTING.md), [Setup](docs/SETUP.md), and [Submissions](docs/SUBMISSIONS.md).
+
+## Arcade graphics
+
+See [display options and previews](docs/arcade/README.md). Original offline
+pixel art, parallax scenery, animated bird and replay HUD are included.
