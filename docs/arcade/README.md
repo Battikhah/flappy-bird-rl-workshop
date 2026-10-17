@@ -14,3 +14,6 @@ physical monitor, Windows/Linux and projector performance were not measured.
 ![Gameplay](gameplay.png)
 ![AI pilot](ai-watch.png)
 ![Replay](tournament-replay.png)
+
+Human play opens on START. Press ENTER or SPACE to begin; physics remains
+paused while the menu is visible. SPACE flaps and ESC exits.

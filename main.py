@@ -42,16 +42,23 @@ def playback(args):
         env.render()
         env._renderer.mode = 'AI' if args.mode == 'demo' else 'HUMAN'
         env._renderer.detail = 'OBSERVATION DEMO' if args.mode == 'demo' else ''
+        ready = args.mode == 'play'
         while not env.done:
             action = 0
             for event in pygame.event.get():
                 if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
                     return
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                    action = 1
+                if event.type == pygame.KEYDOWN:
+                    if ready and event.key in (pygame.K_SPACE, pygame.K_RETURN):
+                        ready = False
+                        action = 1
+                    elif not ready and event.key == pygame.K_SPACE:
+                        action = 1
             if args.mode == 'demo':
                 action = heuristic(env.observe())
-            env.step(action)
+            # Waiting on START must not consume physics ticks or episode budget.
+            if not ready:
+                env.step(action)
             env.render()
             clock.tick(env.config.fps * args.playback_speed)
         print(f'Score: {env.score}; steps: {env.steps}')

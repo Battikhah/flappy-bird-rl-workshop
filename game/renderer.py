@@ -112,7 +112,12 @@ class Renderer:
         if self.detail:
             self._center(self.detail[:52], 46, 1, (157, 223, 181))
         if env.steps == 0:
-            self._panel('READY TO FLY', 'SPACE FLAP / ESC EXIT' if self.mode == 'HUMAN' else 'Q-TABLE PILOT READY')
+            if self.mode == 'HUMAN':
+                self._panel('FLAPPY RL', 'START')
+                self._center('ENTER OR SPACE TO START', 354, 2, INK)
+                self._center('SPACE FLAP / ESC EXIT', 382, 1, INK)
+            else:
+                self._panel('READY TO FLY', 'Q-TABLE PILOT READY')
         elif env.done:
             self._panel('FLIGHT COMPLETE' if env.score >= c.max_pipes else 'GAME OVER', f'{env.score} PIPES PASSED')
             self._center('RUN COMMAND AGAIN TO RESTART', 354, 2, INK)
