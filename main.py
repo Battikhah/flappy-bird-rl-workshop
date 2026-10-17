@@ -103,7 +103,7 @@ def main():
     parser.add_argument('--baselines', action='store_true')
     args = parser.parse_args()
     if args.episodes is None:
-        args.episodes = (5000 if args.research else 3000) if args.mode == 'train' else 1
+        args.episodes = (5000 if args.research else 2400) if args.mode == 'train' else 1
     if args.mode in ('train', 'evaluate', 'watch', 'history', 'validate', 'submit'):
         from rl.cli import run
         run(args)

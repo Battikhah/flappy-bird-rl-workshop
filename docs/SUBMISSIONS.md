@@ -15,7 +15,7 @@ The trusted evaluator reconstructs only the supported encoder and Q lookup.
 
 Enforceable artifact checks: exact input/action contract, supported bin schema,
 finite values and dimensions, bounded files (16 MiB each, at most one million
-states), zero-initialization declaration, official run kind and 3,000 cap, contiguous
+states), zero-initialization declaration, official run kind and 2,400 cap, contiguous
 logged episodes, seed/configuration consistency, public-only checkpoint selection,
 serialization roundtrip, and reproducible legal actions on numerical probes.
 

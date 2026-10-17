@@ -17,7 +17,7 @@ from .agent import Discretizer, QAgent
 from student_exercises import QLearner, training_reward
 
 
-OFFICIAL_EPISODE_LIMIT = 3000
+OFFICIAL_EPISODE_LIMIT = 2400
 PUBLIC_VALIDATION_SEEDS = range(3000000, 3000100)
 HISTORY_FIELDS = ('episode', 'seed', 'training_mode', 'epsilon', 'score', 'steps', 'return')
 
@@ -109,7 +109,7 @@ def train(output, episodes, seed=0, discretizer=None, config=None, rewards=None,
     if type(episodes) is not int or episodes <= 0 or type(checkpoint_every) is not int or checkpoint_every <= 0:
         raise ValueError('episodes and checkpoint_every must be positive integers')
     if official and episodes > OFFICIAL_EPISODE_LIMIT:
-        raise ValueError('Official runs allow at most 3,000 training episodes')
+        raise ValueError('Official runs allow at most 2,400 training episodes')
     if official and resume is not None:
         raise ValueError('Official runs require a fresh zero Q-table; resume is research only')
     run_id = uuid4().hex

@@ -71,12 +71,12 @@ python main.py evaluate
 python main.py watch
 ```
 
-Each `train` starts with a new empty Q-table. The official limit is **3,000 training episodes per run**; checkpoints can be selected using the public validation maps. Independent experiments are unlimited, but do not resume, combine, or warm-start tables. `evaluate` uses the public validation seeds and does not learn. `watch` plays the selected model with learning and exploration disabled.
+Each `train` starts with a new empty Q-table. The official limit is **2,400 training episodes per run**; checkpoints can be selected using the public validation maps. Independent experiments are unlimited, but do not resume, combine, or warm-start tables. `evaluate` uses the public validation seeds and does not learn. `watch` plays the selected model with learning and exploration disabled.
 
 To set a reproducible training seed or checkpoint interval:
 
 ```bash
-python main.py train --seed 29 --episodes 3000 --checkpoint-every 1000
+python main.py train --seed 29 --episodes 2400 --checkpoint-every 1000
 ```
 
 More commands and experiment ideas are in [Experiments](docs/EXPERIMENTS.md).
@@ -96,7 +96,7 @@ python main.py submit
 - The policy returns exactly two possible actions: **0 = WAIT**, **1 = FLAP**.
 - Use tabular Q-learning and a discrete state derived only from those observations.
 - Inference must use the trained Q-table only. No heuristic action overrides or other decision systems.
-- Every run starts from an empty Q-table and counts at most **3,000 training episodes**. Checkpoint selection is allowed within that budget.
+- Every run starts from an empty Q-table and counts at most **2,400 training episodes**. Checkpoint selection is allowed within that budget.
 - ChatGPT assistance is allowed; you must understand and explain the code you submit.
 
 ## Common problems

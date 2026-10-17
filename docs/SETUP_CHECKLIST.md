@@ -15,7 +15,7 @@ During class:
 
 - [ ] Complete the four exercises; run each numbered check, then all checks.
 - [ ] Run `train`, `evaluate`, `watch`, `history`, `validate`, then `submit`.
-- [ ] Use a new zero-table run for every experiment; maximum 3,000 episodes.
+- [ ] Use a new zero-table run for every experiment; maximum 2,400 episodes.
 - [ ] Record settings and public validation results; submit only the generated ZIP.
 
 If a command cannot find `main.py` or `requirements.txt`, your terminal is in the

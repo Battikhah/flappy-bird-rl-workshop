@@ -91,13 +91,13 @@ def validate_model(path):
     agent = QAgent.load(path)  # Validates seven observations, actions, checksum, and finite values.
     if metadata.get('run_kind') != 'official' or metadata.get('initialization') != 'zeros':
         raise ValueError('Official submissions require a fresh zero-table run; research/legacy models are ineligible')
-    episodes = integer(metadata['episodes'], 'episodes', 1, 3000)
-    checkpoint = integer(metadata['checkpoint_episode'], 'checkpoint_episode', 1, 3000)
-    budget = integer(metadata.get('training_budget_episodes', episodes), 'training_budget_episodes', 1, 3000)
-    requested = integer(metadata['run_episode_budget'], 'run_episode_budget', 1, 3000)
+    episodes = integer(metadata['episodes'], 'episodes', 1, 2400)
+    checkpoint = integer(metadata['checkpoint_episode'], 'checkpoint_episode', 1, 2400)
+    budget = integer(metadata.get('training_budget_episodes', episodes), 'training_budget_episodes', 1, 2400)
+    requested = integer(metadata['run_episode_budget'], 'run_episode_budget', 1, 2400)
     if checkpoint != episodes or not checkpoint <= budget == requested:
         raise ValueError('Incomplete run accounting: run evaluate to select a checkpoint with the full history')
-    if metadata.get('official_episode_limit') != 3000 or not isinstance(metadata.get('run_id'), str) or not metadata['run_id']:
+    if metadata.get('official_episode_limit') != 2400 or not isinstance(metadata.get('run_id'), str) or not metadata['run_id']:
         raise ValueError('Official limit or run identity is missing')
     seed = metadata['training_seed']
     if type(seed) is not int:

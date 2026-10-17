@@ -28,7 +28,7 @@ def prepare(args):
     """Resolve no-argument workshop commands while preserving explicit model paths."""
     if args.mode == 'train':
         if args.research or args.resume:
-            raise ValueError('Student runs must start fresh, cannot resume, and have a 3,000-episode cap')
+            raise ValueError('Student runs must start fresh, cannot resume, and have a 2,400-episode cap')
         if args.output is None:
             args.output = Path('runs') / f'run_{datetime.now():%Y%m%d_%H%M%S}_{uuid4().hex[:6]}'
         if args.seed is None:
