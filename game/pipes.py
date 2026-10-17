@@ -14,6 +14,7 @@ class Pipe:
     gap_center: float
     passed: bool = False
     world_x: float | None = None
+    gap_height: float | None = None
 
 
 class PipeGenerator:
@@ -40,7 +41,9 @@ class PipeGenerator:
         c = self.config
         bird = Bird(self.bird.y, self.bird.velocity)
         distance = self.distance
-        pipe = Pipe(world_x - distance, center)
+        # Match the emitted pipe so reachability uses its actual opening.
+        gap_height = max(c.min_gap_height, c.gap_height - self.count // c.gap_every)
+        pipe = Pipe(world_x - distance, center, gap_height=gap_height)
         speed = min(c.max_speed, c.initial_speed + c.speed_increment * (self.count // c.speed_every))
         while pipe.x + c.pipe_width >= c.bird_x - c.bird_radius:
             obs = (bird.y, bird.velocity, pipe.x - c.bird_x - c.bird_radius,
@@ -82,8 +85,9 @@ class PipeGenerator:
         self.bird, self.distance = flight
         self.last_world_x = world_x
         self.center = center
+        gap_height = max(c.min_gap_height, c.gap_height - self.count // c.gap_every)
         self.count += 1
-        return Pipe(float(x), center, world_x=world_x)
+        return Pipe(float(x), center, world_x=world_x, gap_height=gap_height)
 
 
 def fill_pipes(pipes, generator, config):

@@ -7,13 +7,13 @@ from typing import ClassVar
 
 @dataclass(frozen=True)
 class Config:
-    """Keep geometry fixed so every seed obeys the same reachability guarantee."""
+    """Share difficulty rules so generation, collisions, and drawing agree."""
 
     max_steps: int = 10000
     max_pipes: int = 100
     initial_speed: float = 3.0
     speed_increment: float = 0.5
-    speed_every: int = 5
+    speed_every: int = 10
     max_speed: float = 6.0
 
     width: ClassVar[int] = 480
@@ -21,8 +21,9 @@ class Config:
     bird_x: ClassVar[int] = 120
     bird_radius: ClassVar[int] = 12
     pipe_width: ClassVar[int] = 64
-    # Tighten steering tolerance while retaining generator-validated routes.
-    gap_height: ClassVar[int] = 144
+    gap_height: ClassVar[int] = 160
+    min_gap_height: ClassVar[int] = 130
+    gap_every: ClassVar[int] = 3
     spacing_min: ClassVar[int] = 230
     spacing_max: ClassVar[int] = 330
     fps: ClassVar[int] = 60

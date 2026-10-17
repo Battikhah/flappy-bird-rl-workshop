@@ -116,6 +116,8 @@ pixel art, parallax scenery, animated bird and replay HUD are included.
 
 ## Difficulty
 
-Pipe gaps are 144 pixels high (previously 160), requiring more precise
-steering. Each generated transition still has a verified collision-free route.
-Retrain agents for this geometry; earlier scores are not directly comparable.
+Pipe gaps start at 160 pixels and narrow by 1 pixel every 3 pipes, reaching
+130 pixels at pipe 91. Each pipe keeps its opening throughout its flight.
+Speed increases by 0.5 pixels/frame every 10 passed pipes, from 3 up to 6.
+Each generated transition still has a verified collision-free route.
+Retrain agents for this progression; earlier scores are not directly comparable.

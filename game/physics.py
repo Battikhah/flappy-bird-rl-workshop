@@ -32,6 +32,7 @@ def collides(bird, pipes, config, old_y, speed):
         # Pipes already moved; add speed to recover the previous right edge.
         if (pipe.x <= config.bird_x + radius
                 and pipe.x + config.pipe_width + speed >= config.bird_x - radius):
-            if top <= pipe.gap_center - config.gap_height / 2 or bottom >= pipe.gap_center + config.gap_height / 2:
+            gap_height = config.gap_height if pipe.gap_height is None else pipe.gap_height
+            if top <= pipe.gap_center - gap_height / 2 or bottom >= pipe.gap_center + gap_height / 2:
                 return True
     return False

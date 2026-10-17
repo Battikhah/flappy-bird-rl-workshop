@@ -86,8 +86,9 @@ class Renderer:
                 (x+50, 528), (x+76, 548), (x+120, 548), (x+160, c.height)])
         for pipe in env.pipes:
             x = round(pipe.x)
-            top = round(pipe.gap_center-c.gap_height/2)
-            bottom = round(pipe.gap_center+c.gap_height/2)
+            gap_height = c.gap_height if pipe.gap_height is None else pipe.gap_height
+            top = round(pipe.gap_center-gap_height/2)
+            bottom = round(pipe.gap_center+gap_height/2)
             s.blit(self.stem, (x, 0), (0, 0, c.pipe_width, top))
             s.blit(self.cap, (x, top-20))
             s.blit(self.stem, (x, bottom), (0, 0, c.pipe_width, c.height-bottom))
