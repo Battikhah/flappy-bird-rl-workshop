@@ -17,3 +17,6 @@ physical monitor, Windows/Linux and projector performance were not measured.
 
 Human play opens on START. Press ENTER or SPACE to begin; physics remains
 paused while the menu is visible. SPACE flaps and ESC exits.
+
+Q-table watch has a clickable PLAYBACK button below the game. Click to cycle
+1x, 2x, 4x, 8x and back to 1x. This changes pacing only, not game physics.

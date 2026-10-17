@@ -22,6 +22,8 @@ class Renderer:
             (config.width * scale, (config.height + 28) * scale), pygame.FULLSCREEN if fullscreen else 0)
         pygame.display.set_caption('Flappy RL | Arcade')
         self.mode, self.detail = 'HUMAN', ''
+        self.playback_speed = None
+        self.speed_button = pygame.Rect(config.width//2 - 90, config.height + 5, 180, 20)
         self.birds = bird_frames(config.bird_radius)
         self.rotations = {}
         for frame, sprite in enumerate(self.birds):
@@ -130,10 +132,23 @@ class Renderer:
         # The textured floor lives BELOW y=height; the playable world stays intact.
         for x in range(-64, c.width+64, 64):
             self.presentation.blit(self.ground, (x-offset, c.height))
+        if self.playback_speed is not None:
+            pygame.draw.rect(self.presentation, INK, self.speed_button, border_radius=3)
+            label = self.label(f'PLAYBACK {self.playback_speed:g}X', 2)
+            self.presentation.blit(label, label.get_rect(center=self.speed_button.center))
         size = (c.width*scale, (c.height+28)*scale)
         self.window.blit(pygame.transform.scale(self.presentation, size), ((width-size[0])//2, (height-size[1])//2))
         pygame.display.flip()
         return s
+
+    def speed_button_clicked(self, position):
+        """Map window clicks through integer scaling and fullscreen letterboxing."""
+        width, height = self.window.get_size()
+        c = self.config
+        scale = max(1, min(width//c.width, height//(c.height+28)))
+        x = (position[0] - (width-c.width*scale)//2) / scale
+        y = (position[1] - (height-(c.height+28)*scale)//2) / scale
+        return self.playback_speed is not None and self.speed_button.collidepoint(x, y)
 
     def _panel(self, heading, subtitle):
         """Use small arcade cards only at existing ready and terminal snapshots."""

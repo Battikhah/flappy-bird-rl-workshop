@@ -90,21 +90,29 @@ def watch(agent, args, config):
 
     env = FlappyBirdEnv(config)
     clock = pygame.time.Clock()
+    playback_speed = args.playback_speed
     try:
         for episode in range(args.episodes):
             seed = None if args.seed is None else args.seed + episode
             observation = env.reset(seed)
             env.render()
             env._renderer.mode = 'AI'
+            env._renderer.playback_speed = playback_speed
+            env.render()
             env._renderer.detail = f'EPISODE {episode + 1}/{args.episodes} / Q-TABLE'
             pygame.display.set_caption(f'Q-table agent | Episode {episode + 1}/{args.episodes} | Seed {seed}')
             while True:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
                         return
+                    if (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1
+                            and env._renderer.speed_button_clicked(event.pos)):
+                        playback_speed = next((rate for rate in (1, 2, 4, 8)
+                                               if rate > playback_speed), 1)
+                        env._renderer.playback_speed = playback_speed
                 observation, _, terminated, truncated, _ = env.step(agent.act(observation))
                 env.render()
-                clock.tick(config.fps * args.playback_speed)
+                clock.tick(config.fps * playback_speed)
                 if terminated or truncated:
                     break
     finally:
