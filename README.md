@@ -113,3 +113,9 @@ For help, see [Troubleshooting](docs/TROUBLESHOOTING.md), [Setup](docs/SETUP.md)
 
 See [display options and previews](docs/arcade/README.md). Original offline
 pixel art, parallax scenery, animated bird and replay HUD are included.
+
+## Difficulty
+
+Pipe gaps are 144 pixels high (previously 160), requiring more precise
+steering. Each generated transition still has a verified collision-free route.
+Retrain agents for this geometry; earlier scores are not directly comparable.

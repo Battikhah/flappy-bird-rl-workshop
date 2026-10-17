@@ -21,7 +21,8 @@ class Config:
     bird_x: ClassVar[int] = 120
     bird_radius: ClassVar[int] = 12
     pipe_width: ClassVar[int] = 64
-    gap_height: ClassVar[int] = 160
+    # Tighten steering tolerance while retaining generator-validated routes.
+    gap_height: ClassVar[int] = 144
     spacing_min: ClassVar[int] = 230
     spacing_max: ClassVar[int] = 330
     fps: ClassVar[int] = 60
