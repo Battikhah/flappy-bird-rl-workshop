@@ -1,6 +1,6 @@
 {
   ".gitignore": "a6ac43e4f08f7b0a48129de6e0a630cb0efb9f77b48847310d22f9873f54900c",
-  "README.md": "39bb33dfa6d976a80df242169c541a42d9c6cf134fc00c16ccbea5cf2c941fbb",
+  "README.md": "dad28fc66ae1b7ae7f789e0b94d0f36a32def778dc432a7f24bbf5e686696d4b",
   "assets/README.md": "d31e28eb680a0641ecfbccd4dcaa306eb8821700a82b80a78bdb6542c7db7074",
   "assets/bird.txt": "ed320fd19792034160f19beb1ae65dad63969f98d42508f4dda014949e5396d7",
   "check_exercises.py": "6d637bcc9974713626bd34671475f418c867ba8fd68613190e9df073f1934c4b",
@@ -37,5 +37,5 @@
   "rl/student_cli.py": "cc1d092f6914572a5b7bc22c5f7868a7250165a1ac24ca1cce905755ade79655",
   "rl/submission.py": "93280f601a3efed004345db68b0157063c635ddbdee5e3932b362988fdd4ee5e",
   "rl/training.py": "53b8dcc257f632af10191505948f89d6b95676424c3d0664fb04593febbc0a86",
-  "student_exercises.py": "04c99cc49096be612fec13f0fac773bb4b517d49a55358a70cde27ae80e2a752"
+  "student_exercises.py": "20bb594accbbe1296d863b0f11f6882d14fc791b7a9a5c5110aa01ae3795fce6"
 }

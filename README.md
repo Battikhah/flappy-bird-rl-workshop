@@ -1,6 +1,6 @@
 # Flappy Bird RL Workshop
 
-Build a tabular Q-learning agent by completing four short Python exercises. The game, observation encoder, training loop, evaluation, model export, and submission checks are supplied. Your learning algorithm is completed during the workshop.
+The four Q-learning exercises are already completed in this version. Run `python check_exercises.py`, then `python main.py train` to start a fresh 2,400-episode run.
 
 ## Before class
 
@@ -49,7 +49,7 @@ Press **SPACE** to flap and **ESC** to exit. The game runs locally in a Pygame w
 
 ## Four live-coding exercises
 
-Edit only `student_exercises.py` during the guided exercises. The four TODOs are:
+Edit only `student_exercises.py` during the guided exercises. The four completed implementations are:
 
 1. Initialize a fresh, all-zero Q-table with the correct shape and type.
 2. Select an action using epsilon-greedy Q-table lookup.
@@ -62,7 +62,7 @@ The game engine under `game/` is protected. Do not change its physics, pipes, sc
 
 ## Train, watch, and evaluate
 
-After completing all four TODOs:
+The exercises are complete; start training:
 
 ```bash
 python main.py train
